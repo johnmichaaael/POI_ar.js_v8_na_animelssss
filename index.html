@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>GeoAR.js demo</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://rawcdn.githack.com/AR-js-org/AR.js/3.3.3/aframe/build/aframe-ar-nft.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <script>
+      AFRAME.registerComponent("locationfinder", {
+        init: function () {
+          navigator.geolocation.getCurrentPosition(function (location) {
+            console.log(location);
+          });
+        }
+      });
+    </script>
+    <a-scene embedded arjs="debugUIEnabled: false;">
+      <a-camera gps-camera rotation-reader></a-camera>
+
+      <a-entity
+        gps-entity-place="latitude: 8.359889; longitude: -235.130796;"
+        geometry="primitive: sphere; radius: 5"
+        material="color: red"
+        position="0 0 0"
+      >
+        <a-text value="TEP Building" position="0 1 0"></a-text>
+      </a-entity>
+
+      <a-entity
+        gps-entity-place="latitude: 8.359603; longitude: -235.130817;"
+        geometry="primitive: sphere; radius: 5"
+        material="color: red"
+        position="0 0 0"
+      >
+        <a-text value="CCS Building" position="0 1 0"></a-text>
+      </a-entity>
+
+      <a-entity
+        gps-entity-place="latitude: 8.359093; longitude: -235.131418;"
+        geometry="primitive: sphere; radius: 5"
+        material="color: red"
+        position="0 0 0"
+      >
+        <a-text value="BSBA Building" position="0 1 0"></a-text>
+      </a-entity>
+
+      <a-entity
+        gps-entity-place="latitude: 8.318718; longitude: -235.141125;"
+        geometry="primitive: sphere; radius: 5"
+        material="color: red"
+        position="0 0 0"
+      >
+        <a-text value="Silingan ni" position="0 1 0"></a-text>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
